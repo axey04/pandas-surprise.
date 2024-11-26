@@ -1,0 +1,173 @@
+/* Body Background and Layout */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff8da1, #ff5f6d); /* Gradient background for better look */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Panda Corner Animations */
+.panda-corner {
+    width: 80px;
+    height: 80px;
+    background: url('panda-eating.gif') no-repeat center/contain;
+    position: fixed;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.panda-top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.panda-top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.panda-bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.panda-bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Star Animation */
+.star {
+    width: 50px;
+    height: 50px;
+    background: url('star.png') no-repeat center/contain; /* Replace with a star image */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: starAnimation 4s ease-in-out infinite;
+    opacity: 0.6; /* Light color effect */
+}
+
+/* Heart Animation (Full Screen, Pink Heart) */
+.heart {
+    width: 300px;
+    height: 300px;
+    background-color: pink;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Perfect Heart Shape */
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: heartAnimation 4s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Heart Shape Image Section (No Clip Path, Just Round Photo) */
+.photo img {
+    width: 200px;
+    height: 200px; /* Same height and width to make it round */
+    margin: 20px;
+    border-radius: 50%; /* Round shape */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 2s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* Heart Animation Keyframes */
+@keyframes heartAnimation {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(3);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(5);
+        opacity: 0;
+    }
+}
+
+/* Fade In and Slide Up for Poem and Photo */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text Styling */
+.love-text {
+    font-size: 2rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeInText 3s ease-in-out forwards;
+    animation-delay: 4s;
+}
+
+/* Fade In Text */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Bounce Animation for Panda */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Star Animation Keyframes */
+@keyframes starAnimation {
+    0% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+}
